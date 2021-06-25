@@ -76,7 +76,7 @@
             // 
             // Prosents
             // 
-            this.Prosents.DecimalPlaces = 2;
+            this.Prosents.DecimalPlaces = 1;
             this.Prosents.Increment = new decimal(new int[] {
             1,
             0,

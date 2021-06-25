@@ -67,22 +67,17 @@ namespace ItogWork
 			//textRes.Text = res;
 
 			bool right = true;
-			bool tryConvert = true;
-			string[] daysAndProcent;
-			do
-			{
+			string[] daysandprocent;
+
 				try
 				{
 					int x = Convert.ToInt32(SumZaimInRub.Text);
 					int y = Convert.ToInt32(SrokZaima.Text);
-					break;
 				}
 				catch (FormatException)
 				{
 					MessageBox.Show("Неверно веденны данные");
-					tryConvert = false;
 				}
-			} while (tryConvert);
 
 			if (SumZaimInRub.Text == "" || SrokZaima.Text == "" || (Convert.ToInt32(SumZaimInRub.Text) > 500000 ))
 			{
@@ -92,36 +87,35 @@ namespace ItogWork
 
 			if (right)
 			{
-				daysAndProcent = Prosents.Text.Split(' ');
-
+				daysandprocent = Prosents.Text.Split(' ');
 
 				int sumZaima = Convert.ToInt32(SumZaimInRub.Text);
-				double[] procentOnDay = new double[Convert.ToInt32(SrokZaima.Text)];
+				double[] procentDay = new double[Convert.ToInt32(SrokZaima.Text)];
 
 				///// проценты по умолчанию 
-				for (int i = 0; i < procentOnDay.Length; i++) 
+				for (int i = 0; i < procentDay.Length; i++) 
 				{
-					procentOnDay[i] = 0.9;
+					procentDay[i] = 0.9;
 				}
 
 				/////переплата
-				for (int i = 0; i < procentOnDay.Length; i++)
+				for (int i = 0; i < procentDay.Length; i++)
 				{
-					pereplata += sumZaima / 100 * procentOnDay[i];
+					pereplata += sumZaima / 100 * procentDay[i];
 				}
 
 
-
+				////
 				double sumProcent = 0;
-				for (int i = 0; i < procentOnDay.Length; i++)
+				for (int i = 0; i < procentDay.Length; i++)
 				{
-					sumProcent += procentOnDay[i];
+					sumProcent += procentDay[i];
 				}
 
 				fullSum = sumZaima + pereplata;
-				srRpocent = sumProcent / procentOnDay.Length;
+				srRpocent = sumProcent / procentDay.Length;
 
-				DialogResult dialogResult = MessageBox.Show("Полная выплачиваемая сумма: " + fullSum + "\n" + "Сумма процентов по долгу (переплата): " + pereplata + "\n" + "Эффективная процентная ставка в день: " + srRpocent);
+				DialogResult dialogResult = MessageBox.Show("Полная выплачиваемая сумма: " + fullSum + "\n" + "Сумма процентов по долгу: " + pereplata + "\n" + "Эффективная процентная ставка в день: " + srRpocent);
 			}
 		}
 
