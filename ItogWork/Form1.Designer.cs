@@ -29,12 +29,16 @@
         private void InitializeComponent()
         {
             this.SumZaimInRub = new System.Windows.Forms.TextBox();
-            this.SrokZaima = new System.Windows.Forms.TextBox();
             this.Sum = new System.Windows.Forms.Label();
             this.Srok = new System.Windows.Forms.Label();
             this.ProsentTab = new System.Windows.Forms.Label();
             this.Prosents = new System.Windows.Forms.NumericUpDown();
+            this.SrokZaima = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textRes = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Prosents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SrokZaima)).BeginInit();
             this.SuspendLayout();
             // 
             // SumZaimInRub
@@ -43,13 +47,6 @@
             this.SumZaimInRub.Name = "SumZaimInRub";
             this.SumZaimInRub.Size = new System.Drawing.Size(100, 20);
             this.SumZaimInRub.TabIndex = 0;
-            // 
-            // SrokZaima
-            // 
-            this.SrokZaima.Location = new System.Drawing.Point(128, 75);
-            this.SrokZaima.Name = "SrokZaima";
-            this.SrokZaima.Size = new System.Drawing.Size(100, 20);
-            this.SrokZaima.TabIndex = 1;
             // 
             // Sum
             // 
@@ -72,7 +69,7 @@
             // ProsentTab
             // 
             this.ProsentTab.AutoSize = true;
-            this.ProsentTab.Location = new System.Drawing.Point(72, 141);
+            this.ProsentTab.Location = new System.Drawing.Point(72, 121);
             this.ProsentTab.Name = "ProsentTab";
             this.ProsentTab.Size = new System.Drawing.Size(50, 13);
             this.ProsentTab.TabIndex = 5;
@@ -80,26 +77,71 @@
             // 
             // Prosents
             // 
-            this.Prosents.Location = new System.Drawing.Point(128, 134);
+            this.Prosents.DecimalPlaces = 2;
+            this.Prosents.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.Prosents.Location = new System.Drawing.Point(128, 121);
             this.Prosents.Name = "Prosents";
             this.Prosents.Size = new System.Drawing.Size(120, 20);
             this.Prosents.TabIndex = 6;
             this.Prosents.ValueChanged += new System.EventHandler(this.Prosents_ValueChanged);
             // 
+            // SrokZaima
+            // 
+            this.SrokZaima.Location = new System.Drawing.Point(128, 71);
+            this.SrokZaima.Name = "SrokZaima";
+            this.SrokZaima.Size = new System.Drawing.Size(120, 20);
+            this.SrokZaima.TabIndex = 7;
+            this.SrokZaima.ValueChanged += new System.EventHandler(this.SrokZaima_ValueChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(104, 165);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "SAVE";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(92, 219);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(99, 38);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Подсчет";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textRes
+            // 
+            this.textRes.Location = new System.Drawing.Point(46, 293);
+            this.textRes.Name = "textRes";
+            this.textRes.Size = new System.Drawing.Size(191, 20);
+            this.textRes.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(339, 324);
+            this.ClientSize = new System.Drawing.Size(285, 366);
+            this.Controls.Add(this.textRes);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SrokZaima);
             this.Controls.Add(this.Prosents);
             this.Controls.Add(this.ProsentTab);
             this.Controls.Add(this.Srok);
             this.Controls.Add(this.Sum);
-            this.Controls.Add(this.SrokZaima);
             this.Controls.Add(this.SumZaimInRub);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.Prosents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SrokZaima)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -108,11 +150,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox SumZaimInRub;
-        private System.Windows.Forms.TextBox SrokZaima;
         private System.Windows.Forms.Label Sum;
         private System.Windows.Forms.Label Srok;
         private System.Windows.Forms.Label ProsentTab;
         private System.Windows.Forms.NumericUpDown Prosents;
+        private System.Windows.Forms.NumericUpDown SrokZaima;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textRes;
     }
 }
 
